@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ScrollView bg; // Reference to the ScrollView
     int colorIndex = 0; // saves current color index.
     TextView blue, yellow, maroon, orange;
+    CommHandler commHandler;
 
     /*
         Gets the string in the TextView and changes the colorIndex.
@@ -86,8 +87,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 colorIndex = 3;
                 break;
         }
-        updateColor(colorIndex);
 
+        //updateColor(colorIndex);
+
+        //commHandler.
         /*
             The simplest way to make the watch interact with the
             mobile is using notification. You don’t even have to code
@@ -95,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             NotificationCompat and NotificationManagerCompat.
         */
         //Send a notification to the watch
+        /*
         int notificationID = 1;
         //The intent allows user opens the activity on the phone
         Intent viewIntent = new Intent(this, MainActivity.class);
@@ -109,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Send the notification
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
         notificationManagerCompat.notify(notificationID, notificationBuilder.build());
+        */
     }
 
     // Go and update the UI of the watch face.
@@ -127,5 +132,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         yellow.setOnClickListener(this);
         maroon.setOnClickListener(this);
         orange.setOnClickListener(this);
+        commHandler = new CommHandler(this);
     }
 }

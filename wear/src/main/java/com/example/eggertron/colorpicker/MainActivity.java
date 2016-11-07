@@ -28,6 +28,7 @@ public class MainActivity extends WearableActivity implements WearableListView.C
     // Coming back from the end of Adapter.java
     String[] elements = {"Blue", "Yellow", "Maroon", "Orange"};
     Adapter adapter;
+    CommHandler commHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,12 @@ public class MainActivity extends WearableActivity implements WearableListView.C
         // Now create the WearableListItemLayout class
         wearableListView.setAdapter(adapter = new Adapter(this, elements));
         wearableListView.setClickListener(this);
+        // Initialize the adapter
+        adapter = new Adapter(this, elements);
+        //Add the adapter to wearablelistView
+        wearableListView.setAdapter(adapter);
+
+        commHandler = new CommHandler(this);
     }
 
     @Override
@@ -65,6 +72,7 @@ public class MainActivity extends WearableActivity implements WearableListView.C
     private void updateDisplay() {
         if (isAmbient()) {
             mContainerView.setBackgroundColor(getResources().getColor(android.R.color.black));
+            //mContainerView.setBackgroundColor(getResources().getColor(android.R.color.black));
             //mTextView.setTextColor(getResources().getColor(android.R.color.white));
             //mClockView.setVisibility(View.VISIBLE);
 
@@ -78,7 +86,9 @@ public class MainActivity extends WearableActivity implements WearableListView.C
 
     @Override
     public void onClick(WearableListView.ViewHolder viewHolder) {
-        updateColor(viewHolder.getAdapterPosition());
+        int posi = viewHolder.getAdapterPosition();
+        updateColor(posi);
+        commHandler.sendMessage(posi);
     }
 
     public void updateColor(int colorIndex) {

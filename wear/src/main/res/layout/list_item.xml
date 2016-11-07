@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WearableListItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!-- <WearableListItemLayout -->
+<com.example.eggertron.colorpicker.WearableListItemLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
@@ -11,4 +14,5 @@
         android:textSize="30dp"/>
 
     <!-- Now add an Adapter to add items -->
-</WearableListItemLayout>
+<!-- </WearableListItemLayout> -->
+</com.example.eggertron.colorpicker.WearableListItemLayout>
