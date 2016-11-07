@@ -88,9 +88,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
-        //updateColor(colorIndex);
+        updateColor(colorIndex);
 
-        //commHandler.
+        commHandler.sendMessage(colorIndex);
         /*
             The simplest way to make the watch interact with the
             mobile is using notification. You don’t even have to code

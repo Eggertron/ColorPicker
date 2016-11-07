@@ -52,6 +52,10 @@ public class CommHandler implements DataApi.DataListener, GoogleApiClient.Connec
         };
     }
 
+    public void sendMessage(int currentIndex){
+        new NumberSenderAsync().execute(currentIndex);
+    }
+
     private class NumberSenderAsync extends AsyncTask<Integer, Void, Void> {
 
         @Override
